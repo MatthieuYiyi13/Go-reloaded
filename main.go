@@ -21,10 +21,10 @@ func run(args []string) error {
 	if err != nil {
 		return fmt.Errorf("read input: %w", err)
 	}
-	if err := os.WriteFile(args[1], []byte(reloaded.Up(string(input))), 0644); err != nil {
-		return fmt.Errorf("write output: %w", err)
-	}
-	if err := os.WriteFile(args[1], []byte(reloaded.Low(string(input))), 0644); err != nil {
+	text := reloaded.Up(string(input))
+	text = reloaded.Low(text)
+	text = reloaded.Cap(text)
+	if err := os.WriteFile(args[1], []byte(text), 0644); err != nil {
 		return fmt.Errorf("write output: %w", err)
 	}
 	return nil
