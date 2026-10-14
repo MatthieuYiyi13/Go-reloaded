@@ -21,7 +21,8 @@ func run(args []string) error {
 	if err != nil {
 		return fmt.Errorf("read input: %w", err)
 	}
-	text := reloaded.Up(string(input))
+	text := reloaded.Bin(string(input))
+	text = reloaded.Up(text)
 	text = reloaded.Low(text)
 	text = reloaded.Cap(text)
 	if err := os.WriteFile(args[1], []byte(text), 0644); err != nil {
@@ -29,4 +30,3 @@ func run(args []string) error {
 	}
 	return nil
 }
-
