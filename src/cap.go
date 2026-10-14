@@ -1,9 +1,6 @@
 package reloaded
 
-import (
-	"strings"
-	"unicode"
-)
+import "strings"
 
 func Cap(text string) string {
 	words := strings.Fields(text)
@@ -12,9 +9,8 @@ func Cap(text string) string {
 		last := len(result) - 1
 		if word == "(cap)" || word == "(Cap)" {
 			if last >= 0 {
-				letters := []rune(strings.ToLower(result[last]))
-				letters[0] = unicode.ToUpper(letters[0])
-				result[last] = string(letters)
+				letters := []rune(result[last])
+				result[last] = strings.ToUpper(string(letters[0])) + strings.ToLower(string(letters[1:]))
 			}
 		} else {
 			result = append(result, word)
