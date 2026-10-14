@@ -22,6 +22,7 @@ func run(args []string) error {
 		return fmt.Errorf("read input: %w", err)
 	}
 	text := reloaded.Bin(string(input))
+	text = reloaded.Hex(text)
 	text = reloaded.Up(text)
 	text = reloaded.Low(text)
 	text = reloaded.Cap(text)
