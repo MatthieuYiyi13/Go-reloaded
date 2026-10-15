@@ -4,17 +4,17 @@ import "strings"
 
 func Cap(text string) string {
 	words := strings.Fields(text)
-	var result []string
+	var sortie []string
 	for _, word := range words {
-		last := len(result) - 1
+		fin := len(sortie) - 1
 		if word == "(cap)" || word == "(Cap)" {
-			if last >= 0 {
-				letters := []rune(result[last])
-				result[last] = strings.ToUpper(string(letters[0])) + strings.ToLower(string(letters[1:]))
+			if fin >= 0 {
+				letters := []rune(sortie[fin])
+				sortie[fin] = strings.ToUpper(string(letters[0])) + strings.ToLower(string(letters[1:]))
 			}
 		} else {
-			result = append(result, word)
+			sortie = append(sortie, word)
 		}
 	}
-	return strings.Join(result, " ")
+	return strings.Join(sortie, " ")
 }

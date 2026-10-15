@@ -3,31 +3,22 @@ package main
 import (
 	"fmt"
 	"os"
-	"reloaded/src"
+	reloaded "reloaded/src"
 )
 
 func main() {
-	if err := run(os.Args[1:]); err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		os.Exit(1)
-	}
-}
-
-func run(args []string) error {
-	if len(args) != 2 {
-		return fmt.Errorf("usage: go run . <input> <output>")
-	}
-	input, err := os.ReadFile(args[0])
+	input, err := os.ReadFile(os.Args[1])
 	if err != nil {
-		return fmt.Errorf("read input: %w", err)
+		fmt.Println("Erreur", err)
+		return
 	}
 	text := reloaded.Bin(string(input))
 	text = reloaded.Hex(text)
 	text = reloaded.Up(text)
 	text = reloaded.Low(text)
 	text = reloaded.Cap(text)
-	if err := os.WriteFile(args[1], []byte(text), 0644); err != nil {
-		return fmt.Errorf("write output: %w", err)
+	err = os.WriteFile(os.Args[2], []byte(text), 0644)
+	if err != nil {
+		fmt.Println("Erreur", err)
 	}
-	return nil
 }

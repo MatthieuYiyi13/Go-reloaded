@@ -4,16 +4,16 @@ import "strings"
 
 func Up(text string) string {
 	words := strings.Fields(text)
-	var result []string
+	var sortie []string
 	for _, word := range words {
-		last := len(result) - 1
+		fin := len(sortie) - 1
 		if word == "(up)" || word == "(Up)" {
-			if last >= 0 {
-				result[last] = strings.ToUpper(result[last])
+			if fin >= 0 {
+				sortie[fin] = strings.ToUpper(sortie[fin])
 			}
 		} else {
-			result = append(result, word)
+			sortie = append(sortie, word)
 		}
 	}
-	return strings.Join(result, " ")
+	return strings.Join(sortie, " ")
 }
