@@ -17,6 +17,7 @@ func main() {
 	text = reloaded.Up(text)
 	text = reloaded.Low(text)
 	text = reloaded.Cap(text)
+	text = reloaded.OccurenceA(text)
 	text = reloaded.Ponc(text)
 	err = os.WriteFile(os.Args[2], []byte(text), 0644)
 	if err != nil {
