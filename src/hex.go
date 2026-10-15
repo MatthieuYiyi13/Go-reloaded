@@ -3,6 +3,7 @@ package reloaded
 import (
 	"strconv"
 	"strings"
+	"fmt"
 )
 
 func Hex(text string) string {
@@ -13,7 +14,7 @@ func Hex(text string) string {
 		if (word == "(hex)" || word == "(Hex)") && fin >= 0 {
 			number, err := strconv.ParseInt(sortie[fin], 16, 64)
 			if err == nil {
-				sortie[fin] = strconv.FormatInt(number, 10)
+				sortie[fin] = fmt.Sprint(number)
 				continue
 			}
 		}

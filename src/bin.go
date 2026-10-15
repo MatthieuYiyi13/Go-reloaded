@@ -1,23 +1,24 @@
 package reloaded
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 )
 
 func Bin(text string) string {
 	words := strings.Fields(text)
-	var result []string
+	var sortie []string
 	for _, word := range words {
-		last := len(result) - 1
-		if (word == "(bin)" || word == "(Bin)") && last >= 0 {
-			number, err := strconv.ParseInt(result[last], 2, 64)
+		fin := len(sortie) - 1
+		if (word == "(bin)" || word == "(Bin)") && fin >= 0 {
+			number, err := strconv.ParseInt(sortie[fin], 2, 64)
 			if err == nil {
-				result[last] = strconv.FormatInt(number, 10)
+				sortie[fin] = fmt.Sprint(number)
 				continue
 			}
 		}
-		result = append(result, word)
+		sortie = append(sortie, word)
 	}
-	return strings.Join(result, " ")
+	return strings.Join(sortie, " ")
 }
