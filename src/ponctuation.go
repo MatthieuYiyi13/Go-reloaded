@@ -5,7 +5,7 @@ import "strings"
 func Ponc(text string) string {
 	words := strings.Fields(text)
 	sortie := ""
-	for _, word := range words {
+	for _, word := range words {	// Gestion de la ponctuation
 		if word[0] == '.' || word[0] == ',' || word[0] == '!' || word[0] == '?' || word[0] == ':' || word[0] == ';' {
 			sortie += word
 		} else {
@@ -14,7 +14,6 @@ func Ponc(text string) string {
 			}
 			sortie += word
 		}
+		}	
 	}
 	return sortie
-}
-

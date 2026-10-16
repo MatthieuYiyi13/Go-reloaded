@@ -10,7 +10,7 @@ func Cap(text string) string {
 		if word == "(cap)" || word == "(Cap)" {
 			if fin >= 0 {
 				letters := []rune(sortie[fin])
-				sortie[fin] = strings.ToUpper(string(letters[0])) + strings.ToLower(string(letters[1:]))
+				sortie[fin] = strings.ToUpper(string(letters[0])) + strings.ToLower(string(letters[1:])) // ToUpper s'occupe de mettre la premiere lettre en majuscule et ToLower le reste en minuscule
 			}
 		} else {
 			sortie = append(sortie, word)

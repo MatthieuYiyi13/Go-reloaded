@@ -12,7 +12,7 @@ func Bin(text string) string {
 	for _, word := range words {
 		fin := len(sortie) - 1
 		if (word == "(bin)" || word == "(Bin)") && fin >= 0 {
-			number, err := strconv.ParseInt(sortie[fin], 2, 64)
+			number, err := strconv.ParseInt(sortie[fin], 2, 64) // Convertit le mot précédent en entier à partir de la base 2 (binaire)
 			if err == nil {
 				sortie[fin] = fmt.Sprint(number)
 				continue

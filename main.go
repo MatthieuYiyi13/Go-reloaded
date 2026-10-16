@@ -6,7 +6,7 @@ import (
 	reloaded "reloaded/src"
 )
 
-func main() {
+func main() {		//Executable et gestion des erreurs
 	input, err := os.ReadFile(os.Args[1])
 	if err != nil {
 		fmt.Println("Erreur", err)
