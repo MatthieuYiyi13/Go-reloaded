@@ -20,7 +20,6 @@ func Up(text string) string {
 				sortie = append(sortie, word)
 				continue
 			}
-			// On récupère ce qui se trouve entre "(up," et ")".
 			valeur, err := strconv.Atoi(instruction[4 : len(instruction)-1])
 			if err != nil || valeur <= 0 {
 				sortie = append(sortie, word)
